@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Version>1.0.0.0</Version>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AiUo.AspNet.Hosting" Version="1.0.0" />
+    <PackageReference Include="AiUo.BIZ.RabbitMQ" Version="1.0.0" />
+    <PackageReference Include="AiUo.Extensions.EPPlus" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UGame.User.Repository\UGame.User.Repository.csproj" />
+    <ProjectReference Include="..\UGame.User.MQ\UGame.User.MQ.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="AiUo" />
+    <Using Include="AiUo.Configuration" />
+    <Using Include="AiUo.Logging" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Caching\Partner\" />
+  </ItemGroup>
+</Project>

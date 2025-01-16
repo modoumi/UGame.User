@@ -1,0 +1,47 @@
+{
+  "DockerPublish": {
+    "DefaultConfig": "default",
+    "Configs": [
+      {
+        "Name": "default",
+        "Desc": "默认的配置",
+        "BuildMode": 0,
+        "DockerfilePath": "D:\\xxyy\\xxyy.server\\template\\ApiGame.Host\\Dockerfile",
+        "ServerIp": "10.0.0.102",
+        "Username": "root",
+        "Password": "root",
+        "IsSsh": false,
+        "ServerPath": "/root/hosts/ApiGame.Host/upload",
+        "ImageName": "apigame.host:1.0.0",
+        "ImgLocalPath": "images",
+        "ImgServerPath": "/root/hosts/ApiGame.Host/images",
+        "Containers": [
+          {
+            "Name": "zp.01",
+            "PortString": "-p 30101:80",
+            "EnvString": "-e ENV_ServerId=zp.01 -e ENV_AppId=zp -e ENV_ServerUrl=http://10.0.0.102:30101 -e DOTNET_ENVIRONMENT=Testing",
+            "LimitCoreFile": true,
+            "ServerType": 0,
+            "ServerPath": "/root/hosts/ApiGame.Host/zp.01",
+            "UseImage": true,
+            "ImageName": "tinyfx.aspnet:6.0",
+            "EntryPoint": "ApiGame.Host.dll",
+            "IsDefault": true
+          },
+          {
+            "Name": "zp.02",
+            "PortString": "-p 30102:80",
+            "EnvString": "-e ENV_ServerId=zp.02 -e ENV_AppId=zp -e ENV_ServerUrl=http://10.0.0.102:30102 -e DOTNET_ENVIRONMENT=Testing",
+            "LimitCoreFile": true,
+            "ServerType": 1,
+            "ServerPath": "/root/hosts/ApiGame.Host/zp.02",
+            "UseImage": true,
+            "ImageName": "tinyfx.aspnet:6.0",
+            "EntryPoint": "ApiGame.Host.dll",
+            "IsDefault": false
+          }
+        ]
+      }
+    ]
+  }
+}

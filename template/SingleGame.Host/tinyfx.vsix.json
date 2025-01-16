@@ -1,0 +1,41 @@
+{
+  "DockerPublish": {
+    "DefaultConfig": "default",
+    "Configs": [
+      {
+        "Name": "default",
+        "Desc": "默认的配置",
+        "BuildMode": 0,
+        "DockerfilePath": "",
+        "ServerIp": "10.0.0.102",
+        "Username": "root",
+        "Password": "root",
+        "IsSsh": false,
+        "ServerPath": "/root/hosts/SingleGame.Host/upload",
+        "ImageName": "mcr.microsoft.com/dotnet/runtime:6.0",
+        "ImgLocalPath": "images",
+        "ImgServerPath": "/root/hosts/SingleGame.Host/images",
+        "Containers": [
+          {
+            "Name": "singlegame.01",
+            "PortString": "-p 30101:80",
+            "EnvString": "-e DOTNET_ENVIRONMENT=Testing -e ENV_ServerId=zp.01 -e ENV_AppId=zp -e ENV_ServerUrl=ws://10.0.0.102:30101",
+            "LimitCoreFile": true,
+            "ServerPath": "",
+            "IsDefault": true,
+            "ServerType": null
+          },
+          {
+            "Name": "singlegame.02",
+            "PortString": "-p 30102:80",
+            "EnvString": "-e DOTNET_ENVIRONMENT=Testing -e ENV_ServerType=Staging -e ENV_ServerId=zp.02 -e ENV_AppId=zp -e ENV_ServerUrl=ws://10.0.0.102:30102",
+            "LimitCoreFile": true,
+            "ServerPath": "",
+            "IsDefault": false,
+            "ServerType": "Staging"
+          }
+        ]
+      }
+    ]
+  }
+}
